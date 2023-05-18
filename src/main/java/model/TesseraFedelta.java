@@ -1,6 +1,4 @@
 package model;
 
-public class TesseraFedelta {
-
-
+public interface TesseraFedelta {
 }

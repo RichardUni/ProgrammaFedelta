@@ -46,4 +46,31 @@ public class DefaultTessera implements TesseraFedelta{
     public Cliente getCliente() {
         return cliente;
     }
+
+    @Override
+    public boolean statoTessera() {
+        return false;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    @Override
+    public int getSaldo() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "DefaultTessera{" +
+                "idTessera=" + idTessera +
+                ", punti=" + punti +
+                ", dataCreazione=" + dataCreazione +
+                ", dataScadenza=" + dataScadenza +
+                ", stato=" + stato +
+                ", cliente=" + cliente +
+                '}';
+    }
 }

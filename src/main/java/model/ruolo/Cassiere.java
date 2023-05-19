@@ -1,9 +1,12 @@
 package model.ruolo;
 
+import model.TesseraFedelta;
+
 public interface Cassiere {
+
+    void getCliente();
 
     void creaTesseraFedelta();
 
-    public Cliente getCliente();
-
+    TesseraFedelta getTesseraFedelta();
 }

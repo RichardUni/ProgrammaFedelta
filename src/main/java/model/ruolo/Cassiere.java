@@ -10,3 +10,4 @@ public interface Cassiere {
 
     TesseraFedelta getTesseraFedelta();
 }
+//todo aggiungere il metodo riscatta bonus

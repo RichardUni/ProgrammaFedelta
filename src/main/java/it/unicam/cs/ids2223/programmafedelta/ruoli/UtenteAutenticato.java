@@ -11,7 +11,7 @@ public class UtenteAutenticato implements IUtente {
 
     /**
      * Crea un utente autenticato.
-     * @param idUtente
+     * @param idUtente identificativo dell'utente autenticato
      * @param username username dell'utente autenticato.
      * @param email email dell'utente autenticato.
      * @param tipoUtente tipo di utente autenticato.

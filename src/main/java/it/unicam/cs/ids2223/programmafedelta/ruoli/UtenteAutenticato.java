@@ -11,13 +11,13 @@ public class UtenteAutenticato implements IUtente {
 
     /**
      * Crea un utente autenticato.
-     * @param uid
+     * @param idUtente
      * @param username username dell'utente autenticato.
      * @param email email dell'utente autenticato.
      * @param tipoUtente tipo di utente autenticato.
      */
-    public UtenteAutenticato(int uid, String username, String email, String password, TipoUtente tipoUtente) {
-        this.idUtente = uid;
+    public UtenteAutenticato(int idUtente, String username, String email, String password, TipoUtente tipoUtente) {
+        this.idUtente = idUtente;
         this.username = username;
         this.email = email;
         this.password = password;

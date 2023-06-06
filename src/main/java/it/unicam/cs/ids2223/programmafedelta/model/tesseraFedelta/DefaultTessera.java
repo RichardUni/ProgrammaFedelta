@@ -1,6 +1,6 @@
-package model;
+package it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta;
 
-import model.ruolo.Cliente;
+import it.unicam.cs.ids2223.programmafedelta.ruoli.Cliente;
 
 import java.util.Date;
 

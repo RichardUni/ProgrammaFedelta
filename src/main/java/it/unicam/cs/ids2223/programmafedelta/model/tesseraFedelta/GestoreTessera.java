@@ -1,6 +1,4 @@
-package model;
-
-import model.ruolo.Cliente;
+package it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta;
 
 import java.util.ArrayList;
 import java.util.List;

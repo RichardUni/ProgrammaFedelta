@@ -1,4 +1,6 @@
-package model;
+package it.unicam.cs.ids2223.programmafedelta.model.prodotto;
+
+import it.unicam.cs.ids2223.programmafedelta.model.prodotto.Prodotto;
 
 public class DefaultProdotto implements Prodotto {
     private int id;

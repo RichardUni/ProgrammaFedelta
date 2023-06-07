@@ -1,6 +1,5 @@
 package it.unicam.cs.ids2223.programmafedelta.model.controllerRuoli;
 
-import it.unicam.cs.ids2223.programmafedelta.model.bonus.Bonus;
 import it.unicam.cs.ids2223.programmafedelta.model.prodotto.GestoreProdotto;
 import it.unicam.cs.ids2223.programmafedelta.model.prodotto.Prodotto;
 import it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta.GestoreTessere;
@@ -48,6 +47,7 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
     private void creaTesseraFedelta() {
         int punti = 0;
         int stato = 1;
+        int idCliente = 0;
 
         GestoreTessere gestoreTessere = GestoreTessere.getInstance(cassiere);
 
@@ -74,6 +74,7 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
             String cliente = view.fetchSingleChoice(viewSet);
             Optional<Utente> clienteScelto = insiemeClienti.stream().filter(c -> c.getUsername().equals(cliente)).findFirst();
             idClienteScelto = clienteScelto.map(c -> c.getId());
+            idCliente = idClienteScelto.orElse(-1);
             break;
         }
 
@@ -81,7 +82,7 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
         boolean accetta = view.fetchBool();
 
         if (accetta) {
-            gestoreTessere.add(new InfoTessera(idTessera, idClienteScelto, idNegozio, punti, dI, dF, stato));
+            gestoreTessere.add(new InfoTessera(idTessera, idCliente, punti, dI, dF, stato));
             view.message("La tessera fedeltà è stata creata con successo");
         } else {
             view.message("La creazione della tessera fedeltà è stata annullata");

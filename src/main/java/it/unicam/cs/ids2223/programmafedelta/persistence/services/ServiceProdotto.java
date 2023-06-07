@@ -1,11 +1,9 @@
 package it.unicam.cs.ids2223.programmafedelta.persistence.services;
 
-import it.unicam.cs.ids2223.programmafedelta.model.bonus.IBonus;
 import it.unicam.cs.ids2223.programmafedelta.model.prodotto.IProdotto;
 import it.unicam.cs.ids2223.programmafedelta.model.prodotto.InfoProdotto;
 
 import java.text.MessageFormat;
-import java.time.LocalDateTime;
 import java.util.*;
 
 public class ServiceProdotto extends AbstractService<IProdotto> {
@@ -56,9 +54,9 @@ public class ServiceProdotto extends AbstractService<IProdotto> {
                     case "idProdotto":
                         idProdotto = Integer.parseInt(val);
                         break;
-                    case "idNegozio":
+                   /* case "idNegozio":
                         idNegozio = Integer.parseInt(val);
-                        break;
+                        break; */
                     case "nome":
                         nome = val;
                         break;

@@ -9,6 +9,16 @@ import java.util.Objects;
 public class InfoTessera {
 
     // informazioni impostate dall'utente che crea la tessera fedeltà
+    private int idTessera;
+    private int idCliente;
+
+   // private int idNegozio;
+    private final int punti;
+    private LocalDateTime dataCreazione;
+    private LocalDateTime dataScadenza;
+    private int stato;
+
+    /*
     private final int idTessera;
     private final int idCliente;
     private final int idNegozio;
@@ -16,21 +26,22 @@ public class InfoTessera {
     private final LocalDateTime dataCreazione;
     private final LocalDateTime dataScadenza;
     private final int stato;
+     */
 
 
-    public InfoTessera(int idTessera, int idCliente, int idNegozio, int punti, LocalDateTime dataCreazione, LocalDateTime dataScadenza, int stato) {
+
+    public InfoTessera(int idTessera, int idCliente, int punti, LocalDateTime dataCreazione, LocalDateTime dataScadenza, int stato) {
         this.idTessera = idTessera;
         this.idCliente = idCliente;
-        this.idNegozio = idNegozio;
         this.punti = punti;
         this.dataCreazione = dataCreazione;
         this.dataScadenza = dataScadenza;
         this.stato = stato;
     }
 
-    public InfoTessera(int idTessera, int punti) {
-        this.idTessera = idTessera;
+    public InfoTessera(int punti, int stato) {
         this.punti = punti;
+        this.stato = stato;
     }
 
     public int getIdTessera(){
@@ -41,9 +52,9 @@ public class InfoTessera {
         return idCliente;
     }
 
-    public int getIdNegozio(){
+    /*public int getIdNegozio(){
         return idNegozio;
-    }
+    }*/
 
     public int getPunti() {
         return punti;
@@ -66,7 +77,7 @@ public class InfoTessera {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         InfoTessera that = (InfoTessera) o;
-        return idTessera == that.idTessera && idCliente == that.idCliente && idNegozio == that.idNegozio && punti == that.punti && stato == that.stato && Objects.equals(dataCreazione, that.dataCreazione) && Objects.equals(dataScadenza, that.dataScadenza);
+        return idTessera == that.idTessera && idCliente == that.idCliente && punti == that.punti && stato == that.stato && Objects.equals(dataCreazione, that.dataCreazione) && Objects.equals(dataScadenza, that.dataScadenza);
     }
 
     @Override

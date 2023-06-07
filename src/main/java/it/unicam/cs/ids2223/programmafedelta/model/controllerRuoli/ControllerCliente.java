@@ -12,7 +12,6 @@ import it.unicam.cs.ids2223.programmafedelta.ruoli.Cassiere;
 import it.unicam.cs.ids2223.programmafedelta.ruoli.Cliente;
 import it.unicam.cs.ids2223.programmafedelta.view.IView;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
@@ -68,15 +67,14 @@ public class ControllerCliente extends ControllerUtenteAutenticato implements Co
         dI = LocalDateTime.now();
         dF = LocalDateTime.now();
 
-        Optional<Integer> idClienteScelto;
         GestoreUtente gestoreUtente = GestoreUtente.getInstance();
         Set<Utente> insiemeClienti = gestoreUtente.getUtenti(c -> c.getTipo().equals(TipoUtente.CLIENTE));
         String usernameCorrente = view.ask("Inserire il proprio username");
-        Optional<Integer> idCliente = insiemeClienti.stream()
+        Optional<Integer> idClienteSelezionato = insiemeClienti.stream()
                 .filter(c -> c.getUsername().equals(usernameCorrente))
                 .map(Utente::getId)
                 .findFirst();
-        if(!idCliente.isPresent()){
+        if(!idClienteSelezionato.isPresent()){
             view.message("Utente non trovato");
             return;
         }
@@ -85,7 +83,8 @@ public class ControllerCliente extends ControllerUtenteAutenticato implements Co
         boolean accetta = view.fetchBool();
 
         if (accetta) {
-            gestoreTessere.add(new InfoTessera(idTessera, idCliente, idNegozio, punti, dI, dF, stato));
+            int idCliente = idClienteSelezionato.orElse(-1);
+            gestoreTessere.add(new InfoTessera(idTessera, idCliente, punti, dI, dF, stato));
             view.message("La tessera fedeltà è stata creata con successo");
         } else {
             view.message("La creazione della tessera fedeltà è stata annullata");

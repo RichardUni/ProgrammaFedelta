@@ -38,7 +38,7 @@ public class ServiceTessera extends AbstractService<ITesseraFedelta> {
     public ITesseraFedelta upload (InfoTessera info) {
         int genKey = getGeneratedKey(
                 MessageFormat.format(insert_query, "'" + info.getIdTessera()  + "'",
-                        "'" + info.getIdCliente()  + "'" + info.getIdNegozio() + "'", "'" + info.getStato() + "'",
+                        "'" + info.getIdCliente() + "'", "'" + info.getStato() + "'",
                         "'" + info.getPunti() + "'", "'" + info.getDataCreazione() + "'",
                         "'" + info.getDataScadenza().toString().replace("T", " ")));
         return null;

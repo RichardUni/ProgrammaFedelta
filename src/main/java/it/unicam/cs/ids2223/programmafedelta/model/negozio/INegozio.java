@@ -1,9 +1,5 @@
 package it.unicam.cs.ids2223.programmafedelta.model.negozio;
 
-public interface Negozio {
-
+public interface INegozio {
     int getId();
-    int getIdPropietario();
-    String getNome();
-
 }

@@ -1,8 +1,9 @@
 package it.unicam.cs.ids2223.programmafedelta.model.prodotto;
 
 public interface Prodotto {
-    int getId();
+    int getIdProdotto();
+    int getNegozioId();
     String getNome();
-    float getPrezzo();
+    double getPrezzo();
     int getPunti();
 }

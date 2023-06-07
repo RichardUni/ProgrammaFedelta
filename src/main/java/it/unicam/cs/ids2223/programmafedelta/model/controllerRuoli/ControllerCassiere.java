@@ -1,5 +1,8 @@
 package it.unicam.cs.ids2223.programmafedelta.model.controllerRuoli;
 
+import it.unicam.cs.ids2223.programmafedelta.model.bonus.Bonus;
+import it.unicam.cs.ids2223.programmafedelta.model.prodotto.GestoreProdotto;
+import it.unicam.cs.ids2223.programmafedelta.model.prodotto.Prodotto;
 import it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta.GestoreTessere;
 import it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta.InfoTessera;
 import it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta.TesseraFedelta;
@@ -87,6 +90,40 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
 
 
     private void convalidaAcquisto() {
+
+        GestoreProdotto gestoreProdotto = GestoreProdotto.getInstance(cassiere);
+        GestoreTessere gestoreTessere = GestoreTessere.getInstance(cassiere);
+
+        view.message("Inserire id tessera fedeltà");
+        Set<TesseraFedelta> insiemeTessere = gestoreTessere.getTessereFedelta();
+        int idTesseraFedelta = view.fetchInt();
+        Optional<Integer> tesseraSelezionata = insiemeTessere.stream()
+                .filter(t -> t.getIdTessera()==idTesseraFedelta)
+                .map(TesseraFedelta::getSaldo)
+                .findFirst();
+        int saldoTessera = tesseraSelezionata.orElse(-1);
+        if(saldoTessera<0){
+            view.message("Nessuna tessera presente nella piattaforma con l'id inserito");
+            return;
+        }
+
+        Set<Prodotto> gruppoProdotti = gestoreProdotto.getGruppoProdotti();
+        Set<String> prodotti = gruppoProdotti.stream()
+                .map(Prodotto::getNome)
+                .collect(Collectors.toSet());
+        view.message("Scegliere il prodotto da convalidare", prodotti);
+        String prodottoScelto = view.fetchSingleChoice(prodotti);
+        Optional<Integer> puntiDaAssegnare = gruppoProdotti.stream()
+                .filter(p -> p.getNome().equals(prodottoScelto))
+                .map(Prodotto::getPunti)
+                .findFirst();
+        int puntiProdotto = puntiDaAssegnare.orElse(0);
+
+        int saldoAggiornato = saldoTessera + puntiProdotto;
+        gestoreTessere.aggiornaSaldo(new InfoTessera(saldoAggiornato, idTesseraFedelta));
+
+        view.message("Convalidazione del prodotto effettuata con successo");
+
 
     }
 

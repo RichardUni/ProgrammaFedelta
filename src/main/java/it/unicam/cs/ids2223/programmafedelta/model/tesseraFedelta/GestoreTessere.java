@@ -56,7 +56,7 @@ public class GestoreTessere {
      * @return la tessera con l'id fornito oppure restituisce null se non trova nulla.
      */
     public ITesseraFedelta getTesseraFedelta(int id){
-        return tessereFedelta.stream().filter((e) -> e.getId()==id).findFirst().orElseThrow(NullPointerException::new);
+        return tessereFedelta.stream().filter((t) -> t.getId()==id).findFirst().orElseThrow(NullPointerException::new);
     }
 
     /**
@@ -70,8 +70,6 @@ public class GestoreTessere {
     public void aggiornaSaldo(InfoTessera infoTessera){
         serviceTessera.aggiornaSaldo(infoTessera);
     }
-
-
 
 
 }

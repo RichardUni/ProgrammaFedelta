@@ -127,10 +127,9 @@ public class ControllerCliente extends ControllerUtenteAutenticato implements Co
 
         if(saldoTessera<prezzoBonus){
             view.message("Punteggio presente nella tessera fedeltà non sufficiente");
-            return;
         }else{
             view.message("Il bonus è disponibile per il riscatto");
-            int saldoAggiornato = saldoTessera - prezzoBonus;
+            int saldoAggiornato = saldoTessera + prezzoBonus;
             gestoreTessere.aggiornaSaldo(new InfoTessera(saldoAggiornato, idTesseraFedelta));
         }
     }

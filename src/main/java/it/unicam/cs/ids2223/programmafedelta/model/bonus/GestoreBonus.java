@@ -56,7 +56,7 @@ public class GestoreBonus {
      * @return il bonus con l'id fornito oppure restituisce null se non trova nulla.
      */
     public IBonus getBonus(int id){
-        return bonus.stream().filter((e) -> e.getId()==id).findFirst().orElseThrow(NullPointerException::new);
+        return bonus.stream().filter((p) -> p.getId()==id).findFirst().orElseThrow(NullPointerException::new);
     }
 
     /**
@@ -65,7 +65,7 @@ public class GestoreBonus {
      * @return il bonus con lo stato deciso oppure restituisce null se non trova nulla.
      */
     public IBonus getBonusStato(int stato){
-        return bonus.stream().filter((e) -> e.getId()==stato).findFirst().orElseThrow(NullPointerException::new);
+        return bonus.stream().filter((p) -> p.getId()==stato).findFirst().orElseThrow(NullPointerException::new);
     }
 
     /**
@@ -75,8 +75,4 @@ public class GestoreBonus {
     public void add(InfoBonus infoBonus) {
         serviceBonus.upload(infoBonus);
     }
-
-
-
-
 }

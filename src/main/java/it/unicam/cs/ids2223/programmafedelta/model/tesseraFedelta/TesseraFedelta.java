@@ -2,8 +2,10 @@ package it.unicam.cs.ids2223.programmafedelta.model.tesseraFedelta;
 
 public interface TesseraFedelta {
 
-    boolean statoTessera();
-    int getId();
+    int statoTessera();
+    int getIdTessera();
     int getSaldo();
-    Cliente getCliente();
+    int getId_Cliente();
+    void cambiaStatoTessera(int stato);
+    void assegnaIdCliente(int id);
 }

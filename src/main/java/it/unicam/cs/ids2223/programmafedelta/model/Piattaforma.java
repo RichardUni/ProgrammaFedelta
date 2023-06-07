@@ -1,5 +1,6 @@
 package it.unicam.cs.ids2223.programmafedelta.model;
 
+import it.unicam.cs.ids2223.programmafedelta.model.controllerRuoli.*;
 import it.unicam.cs.ids2223.programmafedelta.persistence.PGManager;
 import it.unicam.cs.ids2223.programmafedelta.ruoli.*;
 import it.unicam.cs.ids2223.programmafedelta.view.CLIView;

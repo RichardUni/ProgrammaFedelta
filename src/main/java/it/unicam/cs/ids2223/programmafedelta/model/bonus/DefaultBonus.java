@@ -6,14 +6,16 @@ import java.util.Objects;
 public class DefaultBonus implements Bonus {
 
     private int idBonus;
+    private int idTessera;
     private int idNegozio;
     private String nome;
     private int prezzoPunti;
     private int stato;
     private LocalDateTime dataScadenza;
 
-    public DefaultBonus(int idBonus, int idNegozio, String nome, int prezzoPunti, LocalDateTime dataScadenza, int stato) {
+    public DefaultBonus(int idBonus, int idTessera, int idNegozio, String nome, int prezzoPunti, LocalDateTime dataScadenza, int stato) {
         this.idBonus = idBonus;
+        this.idTessera = idTessera;
         this.idNegozio = idNegozio;
         this.nome = nome;
         this.prezzoPunti = prezzoPunti;

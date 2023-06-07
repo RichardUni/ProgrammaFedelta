@@ -10,6 +10,28 @@ public class ControllerManager extends ControllerUtenteAutenticato implements Co
         impostaMenu();
     }
 
+    protected boolean switchMenu(int scelta) {
+        boolean loop = true;
+        switch (scelta) {
+            case 1:
+                inserisciCampagna();
+                break;
+            case 2:
+                inviaPubblicita();
+                break;
+            default:
+                loop = super.switchMenu(scelta);
+        }
+        return loop;
+    }
+
+
+
+    private void inserisciCampagna() {
+    }
+
+    private void inviaPubblicita() {
+    }
 
     private void impostaMenu() {
         menuItems.add("1) Inserisci Campagna");

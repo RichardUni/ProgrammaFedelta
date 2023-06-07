@@ -10,6 +10,28 @@ public class ControllerProprietario extends ControllerUtenteAutenticato implemen
         impostaMenu();
     }
 
+    protected boolean switchMenu(int scelta) {
+        boolean loop = true;
+        switch (scelta) {
+            case 1:
+                inserisciDipendente();
+                break;
+            case 2:
+                impostaRegole();
+                break;
+            default:
+                loop = super.switchMenu(scelta);
+        }
+        return loop;
+    }
+
+
+    private void inserisciDipendente() {
+
+    }
+
+    private void impostaRegole() {
+    }
 
     private void impostaMenu() {
         menuItems.add("1) Inserisci Dipendente");

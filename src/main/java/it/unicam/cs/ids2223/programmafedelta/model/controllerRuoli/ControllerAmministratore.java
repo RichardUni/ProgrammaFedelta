@@ -11,6 +11,32 @@ public class ControllerAmministratore  extends ControllerUtenteAutenticato imple
         impostaMenu();
     }
 
+    protected boolean switchMenu(int scelta) {
+        boolean loop = true;
+        switch (scelta) {
+            case 1:
+                EliminaUtente();
+                break;
+            case 2:
+                ModificaUtente();
+                break;
+            case 3:
+                EliminaNegozio();
+            default:
+                loop = super.switchMenu(scelta);
+        }
+        return loop;
+    }
+
+
+    private void EliminaUtente() {
+
+    }
+    private void ModificaUtente() {
+
+    }
+    private void EliminaNegozio() {
+    }
 
 
     private void impostaMenu() {

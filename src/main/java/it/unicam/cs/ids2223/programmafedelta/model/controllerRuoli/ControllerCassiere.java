@@ -47,6 +47,7 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
         int stato = 1;
 
         GestoreTessere gestoreTessere = GestoreTessere.getInstance(cassiere);
+
         Set<TesseraFedelta> gruppoTessere = gestoreTessere.getTessereFedelta();
         int idTessera = gruppoTessere.size();
         if(idTessera!=0) idTessera++;
@@ -66,12 +67,12 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
             return;
         }
         while(true){
-            view.message("Scegli il cliente a cui associare la tessera fedeltà:");
+            view.message("Scegli il cliente a cui associare la tessera fedeltà:", viewSet);
             String cliente = view.fetchSingleChoice(viewSet);
             Optional<Utente> clienteScelto = insiemeClienti.stream().filter(c -> c.getUsername().equals(cliente)).findFirst();
             idClienteScelto = clienteScelto.map(c -> c.getId());
             break;
-            }
+        }
 
         view.message("Vuoi confermare la creazione della tessera fedeltà? [Y/n]:");
         boolean accetta = view.fetchBool();

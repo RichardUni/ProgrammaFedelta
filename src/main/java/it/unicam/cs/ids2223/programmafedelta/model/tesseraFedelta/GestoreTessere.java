@@ -67,6 +67,10 @@ public class GestoreTessere {
         serviceTessera.upload(infoTessera);
     }
 
+    public void aggiornaSaldo(InfoTessera infoTessera){
+        serviceTessera.aggiornaSaldo(infoTessera);
+    }
+
 
 
 

@@ -28,6 +28,11 @@ public class InfoTessera {
         this.stato = stato;
     }
 
+    public InfoTessera(int idTessera, int punti) {
+        this.idTessera = idTessera;
+        this.punti = punti;
+    }
+
     public int getIdTessera(){
         return idTessera;
     }

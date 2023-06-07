@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 /**
- * Singleton Service class per operazioni di persistenza riguardanti le esperienze.
+ * Singleton Service class
  */
 
 public class ServiceTessera extends AbstractService<ITesseraFedelta> {
@@ -20,6 +20,7 @@ public class ServiceTessera extends AbstractService<ITesseraFedelta> {
     private final String col_values = "VALUES ( {0} , {1} , {2} , {3} , {4})";
     private final String select_base_query = "SELECT " + pk_name + ", " + col_names + " FROM " + table_name;
     private final String insert_query = "INSERT INTO " + table_name + " (" + col_names + ") " + col_values + ";";
+    private final String update_query = "UPDATE " + table_name + ";";
 
     private ServiceTessera() {}
 
@@ -39,7 +40,14 @@ public class ServiceTessera extends AbstractService<ITesseraFedelta> {
                 MessageFormat.format(insert_query, "'" + info.getIdTessera()  + "'",
                         "'" + info.getIdCliente()  + "'" + info.getIdNegozio() + "'", "'" + info.getStato() + "'",
                         "'" + info.getPunti() + "'", "'" + info.getDataCreazione() + "'",
-                        "'" + info.getDataScadenza()));
+                        "'" + info.getDataScadenza().toString().replace("T", " ")));
+        return null;
+    }
+
+    public ITesseraFedelta aggiornaSaldo (InfoTessera info){
+        int genKey = getGeneratedKey(
+                MessageFormat.format(update_query, " SET puntiTessera = '" + info.getPunti() +
+                        "' WHERE idTessera = '" + info.getIdTessera() + "'"));
         return null;
     }
 

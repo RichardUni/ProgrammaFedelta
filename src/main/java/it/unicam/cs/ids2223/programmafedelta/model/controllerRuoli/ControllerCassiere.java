@@ -41,6 +41,7 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
         return loop;
     }
 
+
     private void creaTesseraFedelta() {
         int punti = 0;
         int stato = 1;
@@ -84,6 +85,12 @@ public class ControllerCassiere extends ControllerUtenteAutenticato implements C
     }
 
 
+    private void convalidaAcquisto() {
+
+    }
+
+    private void inserisciCliente() {
+    }
 
     private void impostaMenu() {
         menuItems.add("1) Crea Tessera Fedeltà");

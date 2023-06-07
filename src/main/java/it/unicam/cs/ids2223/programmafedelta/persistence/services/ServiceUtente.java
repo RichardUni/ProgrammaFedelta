@@ -1,8 +1,8 @@
 package it.unicam.cs.ids2223.programmafedelta.persistence.services;
 
 import it.unicam.cs.ids2223.programmafedelta.model.Piattaforma;
-import it.unicam.cs.ids2223.programmafedelta.model.utenti.TipoUtente;
 import it.unicam.cs.ids2223.programmafedelta.ruoli.IUtente;
+import it.unicam.cs.ids2223.programmafedelta.ruoli.TipoUtente;
 import it.unicam.cs.ids2223.programmafedelta.ruoli.UtenteAutenticato;
 
 import java.text.MessageFormat;
@@ -40,7 +40,7 @@ public class ServiceUtente extends AbstractService<IUtente> {
      */
     public Set<IUtente> getUsers(TipoUtente tipoUtente) {
         return parseDataResult(
-                getDataResult(select_base_query + " WHERE tipoUtente = " + tipoUtente.getCode() + ";"));
+                getDataResult(select_base_query + " WHERE tipoUtente = " + tipoUtente.getCodice() + ";"));
     }
 
     /**
@@ -116,7 +116,7 @@ public class ServiceUtente extends AbstractService<IUtente> {
      */
     public void signIn(String username, String email, String password, TipoUtente tipoUtente) {
         int idUtente = getGeneratedKey(MessageFormat.format(insert_query, "'" + username + "'", "'" + email + "'",
-                "'" + password + "'", tipoUtente.getCode()));
+                "'" + password + "'", tipoUtente.getCodice()));
         UtenteAutenticato utenteAutenticato = new UtenteAutenticato(idUtente, username, email, password, tipoUtente);
         Piattaforma.getInstance().setControllerUtente(utenteAutenticato);
     }

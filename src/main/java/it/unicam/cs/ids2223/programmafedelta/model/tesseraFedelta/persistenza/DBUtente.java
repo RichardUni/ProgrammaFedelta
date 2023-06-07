@@ -31,8 +31,8 @@ public class DBUtente {
     public Utente genera(ResultSet resultSet) throws SQLException {
         while(resultSet!=null && resultSet.next()){
             Utente utente = new DefaultUtente(
-                    resultSet.getInt("uid"),
-                    tipoUtente(resultSet.getInt("user_type")),
+                    resultSet.getInt("idUtente"),
+                    tipoUtente(resultSet.getInt("tipoUtente")),
                     resultSet.getString("email"),
                     resultSet.getString("username"));
             return utente;

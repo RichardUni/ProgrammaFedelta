@@ -1,52 +1,53 @@
 package it.unicam.cs.ids2223.programmafedelta.ruoli;
 
+/**
+ * Enum dei vari tipi di utente autenticati nella piattaforma
+ */
 public enum TipoUtente {
 
     /**
-     * Utente amministratore.
+     * Utente amministratore
      */
     AMMINISTRATORE(0),
 
     /**
-     * Utente cliente.
+     * Utente cliente
      */
     CLIENTE(1),
 
     /**
-     * Utente cassiere.
+     * Utente cassiere
      */
     CASSIERE(2),
 
     /**
-     * Utente proprietario.
+     * Utente manager
      */
-
-    PROPRIETARIO(3),
+    MANAGER(3),
 
     /**
-     * Utente manager.
+     * Utente proprietario
      */
+    PROPRIETARIO(4);
 
-    MANAGER (4);
+    private final int codice;
 
-    private final int code;
-
-    TipoUtente(int code) {
-        this.code = code;
+    TipoUtente(int codice){
+        this.codice = codice;
     }
 
-    public int getCode() {
-        return code;
+    public int getCodice(){
+        return codice;
     }
-
-    public static TipoUtente cercaTipoUtente(int codiceUtente){
-        switch (codiceUtente){
-            case 0 : return AMMINISTRATORE;
-            case 1 : return CLIENTE;
-            case 2 : return CASSIERE;
-            case 3 : return PROPRIETARIO;
-            case 4 : return MANAGER;
+    public static TipoUtente cercaTipoUtente(int codice){
+        switch (codice){
+            case 0 : return TipoUtente.AMMINISTRATORE;
+            case 1 : return TipoUtente.CLIENTE;
+            case 2 : return TipoUtente.CASSIERE;
+            case 3: return TipoUtente.MANAGER;
+            case 4: return TipoUtente.PROPRIETARIO;
             default: return null;
         }
     }
+
 }

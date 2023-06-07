@@ -1,9 +1,9 @@
 package it.unicam.cs.ids2223.programmafedelta.model.controllerRuoli;
 
 import it.unicam.cs.ids2223.programmafedelta.model.Piattaforma;
-import it.unicam.cs.ids2223.programmafedelta.model.utenti.TipoUtente;
 import it.unicam.cs.ids2223.programmafedelta.persistence.services.AuthenticationErrorException;
 import it.unicam.cs.ids2223.programmafedelta.persistence.services.ServiceUtente;
+import it.unicam.cs.ids2223.programmafedelta.ruoli.TipoUtente;
 import it.unicam.cs.ids2223.programmafedelta.view.IView;
 
 import java.util.ArrayList;

@@ -63,7 +63,7 @@ public final class GestoreUtente {
                     "'" + username + "'",
                     "'" + email + "'",
                     "'" + Math.abs(password.hashCode()) + "'",
-                    TipoUtente.CASSIERE.getCode()
+                    TipoUtente.CASSIERE.getCodice()
             };
             final String format = MessageFormat.format(insertQuery, token);
             int id = DBManager.getInstance().insert_update_delete_query(format);
